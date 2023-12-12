@@ -33,11 +33,6 @@ func main() {
 
 	macAddress := flag.Args()[0]
 
-	// hehehe
-	if macAddress == "hubert" {
-		macAddress = "00:1F:47:E2:25:AC"
-	}
-
 	runWorkers(numWorkersFlag, loopFlag, delayFlag, macAddress)
 
 	fmt.Println("Loop flag not set, all workers done. Exiting.")
