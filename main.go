@@ -16,6 +16,14 @@ func main() {
 	loopFlag := flag.Bool("l", false, "Whether to automatically attempt again after a -d (default 10s) delay if the script exits or not.")
 	delayFlag := flag.Int("d", 10, "Delay in seconds to wait between continuous attempt when running with -loop flag.")
 
+	flag.Usage = func() {
+		fmt.Fprintf(os.Stderr, "Usage of %s:\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Flags (optional, otherwise defaults used):\n")
+		flag.PrintDefaults()
+		fmt.Fprintf(os.Stderr, "Arguments:\n")
+		fmt.Fprintf(os.Stderr, "  Mac Address: address of the device to stress test. Eg. XX:XX:XX:XX:XX:XX.\n")
+	}
+
 	flag.Parse()
 
 	if len(flag.Args()) != 1 {
